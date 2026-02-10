@@ -1,0 +1,46 @@
+body {
+  background-color: #171717;
+  color: white;
+  font-family: Georgia, serif;
+  padding: 2rem;
+}
+
+h1 {
+  color: #ff9f43;
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #ffb86b;
+  margin-top: 2.5rem;
+}
+
+p {
+  line-height: 1.6;
+  max-width: 700px;
+}
+
+ul {
+  margin-top: 1rem;
+}
+
+li {
+  margin-bottom: 0.75rem;
+}
+
+a {
+  color: #c792ea;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
