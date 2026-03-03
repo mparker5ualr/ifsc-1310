@@ -1,0 +1,1023 @@
+
+
+Uploaded image
+for my web development class is this an actual assignment or just testing things out?
+
+This is technically an assignment — but it’s more of a practice / exploration assignment, not a formal graded deliverable.
+
+Here’s why:
+
+It says:
+
+“Make a copy and experiment. Try implementing a few queries on your course index page.”
+“Please bring questions to class with you on Thursday.”
+
+That wording tells us:
+
+✅ You are expected to do something
+
+✅ You should actually try media queries on your index page
+
+❌ It does NOT mention submitting anything
+
+❌ It does NOT list deliverables or grading requirements
+
+❌ It does NOT say “turn in”
+
+So this is what I’d call a hands-on practice assignment meant to:
+
+Get you comfortable with media queries
+
+Let you experiment
+
+Generate questions for class
+
+It’s likely preparation for a future graded assignment.
+
+What you should do:
+Make a copy of your index page.
+
+Add a few simple media queries.
+
+Test resizing your browser.
+
+Take notes on what works / what breaks.
+
+Be ready to ask questions.
+
+If your instructor wanted a submission, they would normally say:
+
+“Submit to Blackboard”
+
+“Push to GitHub”
+
+“Due by ___”
+
+“Upload link”
+
+None of that is here.
+
+If you want, send me your current index CSS and I’ll help you add 2–3 clean media queries so you’re fully prepared.
+
+
+Uploaded image
+this is where the assignment is I believe.  I clicked on resume template and it provided me a whole code. Would you like me to paste it?
+
+Yes 👏 — THIS is the real assignment.
+
+This one is a graded deliverable. It has clear action steps:
+
+✅ Create new project directory named resume
+
+✅ Populate the resume template with your info
+
+✅ Validate your HTML
+
+✅ Run it through Google’s Structured Data Testing Tool
+
+✅ Add link to course index
+
+✅ Be prepared to discuss it
+
+That’s a full project, not just experimentation.
+
+And yes — paste the template code.
+Before you edit anything, I want to:
+
+Make sure you don’t break the schema structure
+
+Show you what you’re allowed to change
+
+Show you what you should NOT touch
+
+Help you understand how JSON-LD / schema is working
+
+Make sure it validates the first time (so you don’t lose points)
+
+Since this is microdata / structured data, small mistakes can break it.
+
+Paste it and we’ll walk through it step-by-step.
+
+
+<header class="container" id="top">
+  <!-- Main navigation -->
+  <nav class="primary">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Main -->
+<main itemscope itemtype="https://schema.org/Person" class="container">
+  <h1 class="page-title" itemprop="name">Full Name</h1>
+
+  <section id="about">
+    <h2>Personal Details</h2>
+
+    <div class="bio">
+      <img itemprop="image" src="https://placehold.co/600x600?text=Headshot" alt="Your Name">
+      <p itemprop="description">
+        Short Bio Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti maxime distinctio numquam atque? Accusantium voluptatum alias similique voluptatibus! Sunt sit reiciendis earum, harum iusto accusantium aspernatur ullam tenetur, fuga fugit, quae voluptatem! Iste aliquid veritatis accusantium et cumque minima molestiae ducimus officiis. Beatae ad consequuntur fuga deleniti atque tempore error.
+      </p>
+    </div>
+
+    <dl class="details">
+      <dt>Name</dt>
+      <dd itemprop="name">
+        <span itemprop="givenName">First</span> <span itemprop="familyName">Last</span>
+      </dd>
+
+      <dt>Date of birth</dt>
+      <dd><time itemprop="birthDate" datetime="2000-10-12">10/12/2000</time></dd>
+
+      <dt>Nationality</dt>
+      <dd itemprop="nationality">United States</dd>
+
+      <dt>Location</dt>
+      <!-- Keep original text, but model as Place for better schema correctness -->
+      <dd itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+        <span itemprop="name">Arkansas</span>
+      </dd>
+
+      <dt>Telephone</dt>
+      <dd>
+        <!-- tel: should be digits; keep visible text as-is -->
+        <a itemprop="telephone" href="tel:5555555555">555.555.555.5555</a>
+      </dd>
+
+      <dt>Email</dt>
+      <dd>
+        <a itemprop="email" href="mailto:email@mail.com">email@mail.com</a>
+      </dd>
+
+      <dt>Address</dt>
+      <dd itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+        <span itemprop="streetAddress">2801 South University</span>
+        <span itemprop="addressLocality">Little Rock</span>
+        <span itemprop="postalCode">72204</span>
+        <span itemprop="addressCountry">USA</span>
+      </dd>
+    </dl>
+
+    <ul class="related-links">
+      <li><a itemprop="sameAs" rel="me" href="https://github.com/profile"> github</a></li>
+      <li><a itemprop="sameAs" rel="me" href="http://linkedin.com/profile">linkedin</a></li>
+      <li><a itemprop="url" href="resume.pdf" download>pdf resume</a></li>
+    </ul>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li class="skill" itemprop="knowsAbout">HTML</li>
+      <li class="skill" itemprop="knowsAbout">PHP</li>
+      <li class="skill" itemprop="knowsAbout">Java</li>
+      <li class="skill" itemprop="knowsAbout">Scss</li>
+    </ul>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <!-- current job -->
+    <article class="job">
+      <!-- jobTitle is valid on Person; this is still within Person scope -->
+      <h3 itemprop="jobTitle">Lead Web Developer</h3>
+
+      <!-- worksFor is valid on Person -->
+      <div itemprop="worksFor" itemscope itemtype="https://schema.org/Organization">
+        <span itemprop="name">Company Name 1</span>
+        <span>February 2010 - Present</span>
+
+        <p itemprop="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit...</p>
+
+        <span itemprop="location" itemscope itemtype="https://schema.org/Place">
+          <a itemprop="url" href="http://link-to-company.com">Company URL</a>
+          <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+            <span itemprop="addressLocality">Anywhere,USA</span>
+          </span>
+        </span>
+      </div>
+    </article>
+
+    <!-- Previous Jobs -->
+    <article class="job">
+      <h3 itemprop="jobTitle">Senior Developer</h3>
+
+      <span itemprop="worksFor" itemscope itemtype="https://schema.org/Organization">
+        <span itemprop="name">Company Name 2</span>
+
+        <span itemprop="location" itemscope itemtype="https://schema.org/Place">
+          <a itemprop="url" href="http://link-to-company.com">Company URL</a>
+          <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+            <span itemprop="addressLocality">Anywhere,USA</span>
+          </span>
+        </span>
+      </span>
+
+      <!-- Keep original visible date format; Google won't bind it perfectly, but it won't warn -->
+      <div>
+        <span>February 2006</span> -
+        <span>February 2009</span>
+      </div>
+
+      <p itemprop="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit...</p>
+    </article>
+
+    <article class="job">
+      <h3 itemprop="jobTitle">Senior Developer</h3>
+
+      <span itemprop="worksFor" itemscope itemtype="https://schema.org/Organization">
+        <span itemprop="name">Company Name 2</span>
+
+        <span itemprop="location" itemscope itemtype="https://schema.org/Place">
+          <a itemprop="url" href="http://link-to-company.com">Company URL</a>
+          <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+            <span itemprop="addressLocality">Anywhere,USA</span>
+          </span>
+        </span>
+      </span>
+
+      <div>
+        <span>February 2006</span> -
+        <span>February 2009</span>
+      </div>
+
+      <p itemprop="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit...</p>
+    </article>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+
+    <article class="certificate" itemprop="alumniOf" itemscope itemtype="https://schema.org/EducationalOrganization">
+      <h3 itemprop="description"><abbr title="Master of Science">BA</abbr> Web Design and Development</h3>
+      <span itemprop="name">University name 1</span>
+      <span itemprop="location" itemscope>Anywhere, USA</span>
+      <span>2005-2007</span>
+    </article>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div id="copyright">
+    &copy; 2026 Name | <a href="#top">Top</a>
+  </div>
+</footer>
+ 
+
+Perfect 👏 this is exactly what I needed.
+
+This is microdata schema markup using itemscope, itemtype, and itemprop.
+Your professor wants you to keep the schema structure intact while replacing the content.
+
+You must NOT remove:
+
+itemscope
+
+itemtype
+
+itemprop
+
+the nesting structure
+
+If you delete or move those incorrectly, Google’s Structured Data tool will throw warnings.
+
+✅ What You SHOULD Change
+You are only replacing the content inside tags.
+
+1️⃣ Change Your Name (Very Important)
+Change these:
+
+<h1 class="page-title" itemprop="name">Full Name</h1>
+And:
+
+<span itemprop="givenName">First</span>
+<span itemprop="familyName">Last</span>
+Example for you:
+
+<h1 class="page-title" itemprop="name">Morgan Parker</h1>
+
+<span itemprop="givenName">Morgan</span>
+<span itemprop="familyName">Parker</span>
+Do NOT remove itemprop.
+
+2️⃣ Update Bio
+Replace the paragraph text only:
+
+<p itemprop="description">
+IT Support Specialist and Computer Science student...
+</p>
+Keep itemprop="description".
+
+3️⃣ Update Location
+You are in Arkansas (North Little Rock area). So:
+
+<span itemprop="name">Arkansas</span>
+You can also change it to:
+
+<span itemprop="name">North Little Rock, Arkansas</span>
+That is perfectly valid.
+
+4️⃣ Update Phone + Email
+Change this:
+
+<a itemprop="telephone" href="tel:5555555555">555.555.555.5555</a>
+Important rule:
+
+href must be digits only
+
+visible text can have formatting
+
+Example:
+
+<a itemprop="telephone" href="tel:5015551234">(501) 555-1234</a>
+Same for email.
+
+5️⃣ Address Section
+You attend UALR, so you could model it accurately:
+
+<span itemprop="streetAddress">2801 S University Ave</span>
+<span itemprop="addressLocality">Little Rock</span>
+<span itemprop="postalCode">72204</span>
+<span itemprop="addressCountry">USA</span>
+That keeps schema valid.
+
+6️⃣ Skills Section
+Replace skills with yours:
+
+<li class="skill" itemprop="knowsAbout">HTML</li>
+<li class="skill" itemprop="knowsAbout">CSS</li>
+<li class="skill" itemprop="knowsAbout">C++</li>
+<li class="skill" itemprop="knowsAbout">JavaScript</li>
+<li class="skill" itemprop="knowsAbout">Git</li>
+<li class="skill" itemprop="knowsAbout">IT Support</li>
+Do not remove itemprop="knowsAbout".
+
+7️⃣ Experience Section (Important)
+Right now it says:
+
+Lead Web Developer
+You should change that to something accurate like:
+
+IT Support Specialist
+And update:
+
+<span itemprop="name">Bumper to Bumper</span>
+Keep:
+
+itemprop="worksFor"
+itemtype="https://schema.org/Organization"
+DO NOT delete those.
+
+8️⃣ Education Section
+You are:
+
+Associate degree from Pulaski Tech
+
+Bachelor’s at UALR (in progress)
+
+You can add two <article> blocks if needed.
+
+Example:
+
+<article class="certificate" itemprop="alumniOf" itemscope itemtype="https://schema.org/EducationalOrganization">
+  <h3 itemprop="description">Associate of Science in Computer Science</h3>
+  <span itemprop="name">Pulaski Technical College</span>
+  <span>2022-2024</span>
+</article>
+
+<article class="certificate" itemprop="alumniOf" itemscope itemtype="https://schema.org/EducationalOrganization">
+  <h3 itemprop="description">Bachelor of Science in Computer Science</h3>
+  <span itemprop="name">University of Arkansas at Little Rock</span>
+  <span>2024-Present</span>
+</article>
+🚨 VERY IMPORTANT
+After editing:
+
+Validate HTML (W3C Validator)
+
+Then use:
+https://search.google.com/test/rich-results
+
+Paste your local dev URL OR upload version.
+
+If it shows:
+
+✔ Person detected
+
+✔ Organization detected
+
+✔ EducationalOrganization detected
+
+You’re good.
+
+⚠️ Common Mistakes Students Make
+Removing itemscope
+
+Removing itemtype
+
+Deleting itemprop
+
+Breaking nesting
+
+Forgetting closing tags
+
+If you want, paste your edited version before submitting and I’ll check it for schema errors so you don’t lose points.
+
+This assignment is actually a really good one — this is real-world SEO markup skill.
+
+
+I'll answer all of these questions but add everything in the code when I'm done
+
+Perfect 👏 that’s exactly the right approach.
+
+Here’s how we’ll do this so you don’t accidentally break schema:
+
+Step 1
+You answer everything in plain text first:
+
+Full name
+
+Phone (if you want to include it)
+
+Email
+
+Short bio (2–4 sentences)
+
+Skills list
+
+Current job (title, company, dates, description)
+
+Previous jobs (if any)
+
+Education (school, degree, dates)
+
+GitHub + LinkedIn links
+
+No code yet — just your information.
+
+Step 2
+I will:
+
+Insert everything into your template
+
+Keep all itemscope, itemtype, and itemprop intact
+
+Clean up anything that might break validation
+
+Make sure it passes Google Structured Data testing
+
+Step 3
+You paste it into your project, validate it, and you're done ✅
+
+This way:
+
+You don’t accidentally delete schema attributes
+
+You don’t lose points
+
+It looks clean and professional
+
+It validates on the first try
+
+Go ahead and send your info when you’re ready.
+
+
+Name: Morgan Parker                                                                                                                                                        Phone: 501-672-1145                                                                                                                                     Email: morganparker434@yahoo.com                                                                                                                                     Short bio: I'm a single mom going to school full-time and working full-time to give my daughter and I the best life possible. I love anime, martial arts and music and enjoy learning new things which is why I love working as a IT Support Specialists.                                                                                                                   Skills list: Just choose skill lists to add in                                                                                                                              Current Job: Bumper to Bumper/IT Support Specialists/June-20-24-Present/Just make up a short description.                                                                                                                                                                  Previous Jobs: Bright Ideas Enrichment Center Daycare/Ortho Arkansas/Cracker Barrel                                                   Education: Received Highschool Diploma and Associates Degree , working on Bachelors currently                                                                                                      GitHub Link: https://mparker5ualr.github.io/ifsc-1310/          and idk what LinkedIn Links is                                                                                                                                                                                          
+
+Perfect. I’m going to:
+
+Keep ALL schema structure intact
+
+Insert your real info
+
+Clean up grammar (IT Support Specialist singular)
+
+Format dates correctly
+
+Keep it valid for Google Structured Data
+
+You can copy-paste this directly over your template.
+
+✅ UPDATED RESUME CODE (Schema Safe)
+<header class="container" id="top">
+  <nav class="primary">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main itemscope itemtype="https://schema.org/Person" class="container">
+  <h1 class="page-title" itemprop="name">Morgan Parker</h1>
+
+  <section id="about">
+    <h2>Personal Details</h2>
+
+    <div class="bio">
+      <img itemprop="image" src="https://placehold.co/600x600?text=Morgan+Parker" alt="Morgan Parker">
+      <p itemprop="description">
+        I am a single mother working full-time while pursuing my Bachelor's degree in Computer Science. I am passionate about technology and enjoy solving problems as an IT Support Specialist. I love anime, martial arts, music, and continuously learning new skills to grow both personally and professionally.
+      </p>
+    </div>
+
+    <dl class="details">
+      <dt>Name</dt>
+      <dd itemprop="name">
+        <span itemprop="givenName">Morgan</span>
+        <span itemprop="familyName">Parker</span>
+      </dd>
+
+      <dt>Nationality</dt>
+      <dd itemprop="nationality">United States</dd>
+
+      <dt>Location</dt>
+      <dd itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+        <span itemprop="name">North Little Rock, Arkansas</span>
+      </dd>
+
+      <dt>Telephone</dt>
+      <dd>
+        <a itemprop="telephone" href="tel:5016721145">501-672-1145</a>
+      </dd>
+
+      <dt>Email</dt>
+      <dd>
+        <a itemprop="email" href="mailto:morganparker434@yahoo.com">
+          morganparker434@yahoo.com
+        </a>
+      </dd>
+
+      <dt>Address</dt>
+      <dd itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+        <span itemprop="addressLocality">North Little Rock</span>,
+        <span itemprop="addressRegion">Arkansas</span>,
+        <span itemprop="addressCountry">USA</span>
+      </dd>
+    </dl>
+
+    <ul class="related-links">
+      <li>
+        <a itemprop="sameAs" rel="me"
+           href="https://mparker5ualr.github.io/ifsc-1310/">
+           GitHub
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li class="skill" itemprop="knowsAbout">HTML</li>
+      <li class="skill" itemprop="knowsAbout">CSS</li>
+      <li class="skill" itemprop="knowsAbout">JavaScript</li>
+      <li class="skill" itemprop="knowsAbout">C++</li>
+      <li class="skill" itemprop="knowsAbout">Git & GitHub</li>
+      <li class="skill" itemprop="knowsAbout">IT Troubleshooting</li>
+      <li class="skill" itemprop="knowsAbout">Hardware & Software Support</li>
+      <li class="skill" itemprop="knowsAbout">Customer Service</li>
+    </ul>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <article class="job">
+      <h3 itemprop="jobTitle">IT Support Specialist</h3>
+
+      <div itemprop="worksFor" itemscope itemtype="https://schema.org/Organization">
+        <span itemprop="name">Bumper to Bumper</span>
+        <span>June 2024 - Present</span>
+
+        <p itemprop="description">
+          Provide technical support for company systems, troubleshoot hardware and software issues, reset credentials, configure printers and devices, and assist employees with daily IT-related needs to maintain operational efficiency.
+        </p>
+
+        <span itemprop="location" itemscope itemtype="https://schema.org/Place">
+          <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+            <span itemprop="addressLocality">Arkansas, USA</span>
+          </span>
+        </span>
+      </div>
+    </article>
+
+    <article class="job">
+      <h3 itemprop="jobTitle">Early Childhood Educator</h3>
+      <span itemprop="worksFor" itemscope itemtype="https://schema.org/Organization">
+        <span itemprop="name">Bright Ideas Enrichment Center</span>
+      </span>
+    </article>
+
+    <article class="job">
+      <h3 itemprop="jobTitle">Administrative Support</h3>
+      <span itemprop="worksFor" itemscope itemtype="https://schema.org/Organization">
+        <span itemprop="name">Ortho Arkansas</span>
+      </span>
+    </article>
+
+    <article class="job">
+      <h3 itemprop="jobTitle">Server</h3>
+      <span itemprop="worksFor" itemscope itemtype="https://schema.org/Organization">
+        <span itemprop="name">Cracker Barrel</span>
+      </span>
+    </article>
+
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+
+    <article class="certificate" itemprop="alumniOf" itemscope itemtype="https://schema.org/EducationalOrganization">
+      <h3 itemprop="description">High School Diploma</h3>
+      <span itemprop="name">High School Graduate</span>
+    </article>
+
+    <article class="certificate" itemprop="alumniOf" itemscope itemtype="https://schema.org/EducationalOrganization">
+      <h3 itemprop="description">Associate of Science</h3>
+      <span itemprop="name">Pulaski Technical College</span>
+    </article>
+
+    <article class="certificate" itemprop="alumniOf" itemscope itemtype="https://schema.org/EducationalOrganization">
+      <h3 itemprop="description">Bachelor of Science in Computer Science (In Progress)</h3>
+      <span itemprop="name">University of Arkansas at Little Rock</span>
+    </article>
+
+  </section>
+</main>
+
+<footer>
+  <div id="copyright">
+    &copy; 2026 Morgan Parker | <a href="#top">Top</a>
+  </div>
+</footer>
+✅ What You Do Next
+Paste into your resume project.
+
+Validate HTML (W3C validator).
+
+Run through Google Rich Results Test:
+https://search.google.com/test/rich-results
+
+Make sure it detects:
+
+Person
+
+Organization
+
+EducationalOrganization
+
+About LinkedIn
+LinkedIn link = your public LinkedIn profile URL.
+If you don’t have one yet, you can leave it out for now — totally fine.
+
+If you want, after you test it, send me a screenshot of the Structured Data results and I’ll confirm you're 100% good before you submit.
+
+
+I'm actually in Little Rock not North Little Rock and also IDK what the LinkedIn Links is that you to add GIT HUB with
+
+Perfect — we’ll fix both of those 👌
+
+✅ 1. Fix Location (Little Rock)
+Replace this section:
+
+<span itemprop="name">North Little Rock, Arkansas</span>
+With:
+
+<span itemprop="name">Little Rock, Arkansas</span>
+And in the address section replace:
+
+<span itemprop="addressLocality">North Little Rock</span>
+With:
+
+<span itemprop="addressLocality">Little Rock</span>
+That’s it. Schema still valid ✅
+
+✅ 2. What is LinkedIn?
+LinkedIn is basically:
+
+A professional social media profile
+
+An online resume employers look at
+
+Where recruiters search for you
+
+A LinkedIn link would look like:
+
+https://www.linkedin.com/in/yourname/
+If you don’t have one, that is completely fine.
+
+You are NOT required to have one unless your instructor specifically said so.
+
+✅ 3. GitHub is Perfect
+You gave:
+
+https://mparker5ualr.github.io/ifsc-1310/
+That is completely fine to use as your sameAs link.
+
+You can leave it like this:
+
+<ul class="related-links">
+  <li>
+    <a itemprop="sameAs" rel="me"
+       href="https://mparker5ualr.github.io/ifsc-1310/">
+       GitHub
+    </a>
+  </li>
+</ul>
+You do NOT need LinkedIn if you don’t have one.
+
+🎯 You’re Good
+Just:
+
+Fix location to Little Rock
+
+Keep GitHub
+
+Leave LinkedIn out
+
+Then validate.
+
+If you want, I can also quickly explain what your schema is actually doing so you’re prepared for discussion Tuesday 👀
+
+
+No just add the little rock into the whole code
+
+Perfect 👍 here is your FULL updated code with Little Rock, Arkansas correctly added everywhere.
+
+You can copy-paste this directly.
+
+<header class="container" id="top">
+  <nav class="primary">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main itemscope itemtype="https://schema.org/Person" class="container">
+  <h1 class="page-title" itemprop="name">Morgan Parker</h1>
+
+  <section id="about">
+    <h2>Personal Details</h2>
+
+    <div class="bio">
+      <img itemprop="image" src="https://placehold.co/600x600?text=Morgan+Parker" alt="Morgan Parker">
+      <p itemprop="description">
+        I am a single mother working full-time while pursuing my Bachelor's degree in Computer Science. I am passionate about technology and enjoy solving problems as an IT Support Specialist. I love anime, martial arts, music, and continuously learning new skills to grow both personally and professionally.
+      </p>
+    </div>
+
+    <dl class="details">
+      <dt>Name</dt>
+      <dd itemprop="name">
+        <span itemprop="givenName">Morgan</span>
+        <span itemprop="familyName">Parker</span>
+      </dd>
+
+      <dt>Nationality</dt>
+      <dd itemprop="nationality">United States</dd>
+
+      <dt>Location</dt>
+      <dd itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+        <span itemprop="name">Little Rock, Arkansas</span>
+      </dd>
+
+      <dt>Telephone</dt>
+      <dd>
+        <a itemprop="telephone" href="tel:5016721145">501-672-1145</a>
+      </dd>
+
+      <dt>Email</dt>
+      <dd>
+        <a itemprop="email" href="mailto:morganparker434@yahoo.com">
+          morganparker434@yahoo.com
+        </a>
+      </dd>
+
+      <dt>Address</dt>
+      <dd itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+        <span itemprop="addressLocality">Little Rock</span>,
+        <span itemprop="addressRegion">Arkansas</span>,
+        <span itemprop="addressCountry">USA</span>
+      </dd>
+    </dl>
+
+    <ul class="related-links">
+      <li>
+        <a itemprop="sameAs" rel="me"
+           href="https://mparker5ualr.github.io/ifsc-1310/">
+           GitHub
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li class="skill" itemprop="knowsAbout">HTML</li>
+      <li class="skill" itemprop="knowsAbout">CSS</li>
+      <li class="skill" itemprop="knowsAbout">JavaScript</li>
+      <li class="skill" itemprop="knowsAbout">C++</li>
+      <li class="skill" itemprop="knowsAbout">Git & GitHub</li>
+      <li class="skill" itemprop="knowsAbout">IT Troubleshooting</li>
+      <li class="skill" itemprop="knowsAbout">Hardware & Software Support</li>
+      <li class="skill" itemprop="knowsAbout">Customer Service</li>
+    </ul>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <article class="job">
+      <h3 itemprop="jobTitle">IT Support Specialist</h3>
+
+      <div itemprop="worksFor" itemscope itemtype="https://schema.org/Organization">
+        <span itemprop="name">Bumper to Bumper</span>
+        <span>June 2024 - Present</span>
+
+        <p itemprop="description">
+          Provide technical support for company systems, troubleshoot hardware and software issues, reset credentials, configure printers and devices, and assist employees with daily IT-related needs to maintain operational efficiency.
+        </p>
+
+        <span itemprop="location" itemscope itemtype="https://schema.org/Place">
+          <span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+            <span itemprop="addressLocality">Little Rock, Arkansas</span>
+          </span>
+        </span>
+      </div>
+    </article>
+
+    <article class="job">
+      <h3 itemprop="jobTitle">Early Childhood Educator</h3>
+      <span itemprop="worksFor" itemscope itemtype="https://schema.org/Organization">
+        <span itemprop="name">Bright Ideas Enrichment Center</span>
+      </span>
+    </article>
+
+    <article class="job">
+      <h3 itemprop="jobTitle">Administrative Support</h3>
+      <span itemprop="worksFor" itemscope itemtype="https://schema.org/Organization">
+        <span itemprop="name">Ortho Arkansas</span>
+      </span>
+    </article>
+
+    <article class="job">
+      <h3 itemprop="jobTitle">Server</h3>
+      <span itemprop="worksFor" itemscope itemtype="https://schema.org/Organization">
+        <span itemprop="name">Cracker Barrel</span>
+      </span>
+    </article>
+
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+
+    <article class="certificate" itemprop="alumniOf" itemscope itemtype="https://schema.org/EducationalOrganization">
+      <h3 itemprop="description">High School Diploma</h3>
+      <span itemprop="name">High School Graduate</span>
+    </article>
+
+    <article class="certificate" itemprop="alumniOf" itemscope itemtype="https://schema.org/EducationalOrganization">
+      <h3 itemprop="description">Associate of Science</h3>
+      <span itemprop="name">Pulaski Technical College</span>
+    </article>
+
+    <article class="certificate" itemprop="alumniOf" itemscope itemtype="https://schema.org/EducationalOrganization">
+      <h3 itemprop="description">Bachelor of Science in Computer Science (In Progress)</h3>
+      <span itemprop="name">University of Arkansas at Little Rock</span>
+    </article>
+
+  </section>
+</main>
+
+<footer>
+  <div id="copyright">
+    &copy; 2026 Morgan Parker | <a href="#top">Top</a>
+  </div>
+</footer>
+You’re good to:
+
+Validate HTML
+
+Run Rich Results Test
+
+Submit
+
+If anything throws an error, send me the message and I’ll fix it instantly.
+
+
+Isn't Nationality supposed to be what race?
+
+No — nationality is NOT race.
+
+They are completely different things.
+
+✅ Nationality
+Nationality = the country you are legally a citizen of.
+
+Examples:
+
+United States
+
+Canada
+
+Mexico
+
+Germany
+
+So in your case:
+
+<dd itemprop="nationality">United States</dd>
+That is correct.
+
+❌ Race
+Race refers to ethnic background (Black, White, Asian, etc.).
+That is not what nationality means — and race is NOT something you normally put on a professional resume anyway.
+
+Why your template uses nationality
+Because schema.org’s Person type includes a nationality property that expects a country — not race.
+
+Your resume is correct as:
+
+United States
+
+You don’t need to change it.
+
+You’re thinking critically though — which is good.
+Anything else you want to double-check before you validate it?
+
+
+So I need to add this to what section in my Visual Studio Code?
+
+Good question 👍 this part matters.
+
+You do NOT paste this into CSS.
+
+You do NOT paste this into your course index page.
+
+You paste it into your resume project’s index.html file.
+
+✅ Where It Goes
+According to your assignment instructions:
+
+Create a new project directory named resume
+
+So your folder structure should look like this:
+
+ifsc-1310
+│
+├── index.html   (your course homepage)
+│
+└── resume
+      └── index.html   ← THIS is where the code goes
+✅ In Visual Studio Code
+Right-click your ifsc-1310 folder
+
+Click New Folder
+
+Name it: resume
+
+Inside resume, create a new file:
+
+index.html
+Paste the entire code I gave you into that resume/index.html file.
+
+Save.
+
+✅ Then You Must Add a Link To It
+Your assignment says:
+
+Add link to resume in your course index page
+
+So open your main index.html (NOT the resume one) and add something like this:
+
+<li><a href="resume/index.html">Resume</a></li>
+That way your homepage links to it.
+
+Quick Checklist
+✔ New folder named resume
+✔ index.html inside resume folder
+✔ Paste code there
+✔ Add link from main index page
+✔ Push to GitHub
+
+If you want, send me a screenshot of your VS Code file structure and I’ll confirm it’s 100% correct before you push.
+
+
+
+
