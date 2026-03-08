@@ -1,0 +1,42 @@
+:root {
+  --primary-color: #1a1a2e;
+  --accent-color: #4ea8de;
+  --background-color: #f4f4f4;
+  --text-color: #222;
+
+  --heading-font: Georgia, serif;
+  --body-font: Arial, sans-serif;
+}
+
+body {
+  background: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--body-font);
+  margin: 40px;
+}
+
+h1, h2, h3 {
+  font-family: var(--heading-font);
+  color: var(--primary-color);
+}
+
+a {
+  color: var(--accent-color);
+}
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.bio img {
+  max-width: 200px;
+  border-radius: 50%;
+}
+
+ul {
+  line-height: 1.6;
+}
+
+section {
+  margin-bottom: 40px;
+}
