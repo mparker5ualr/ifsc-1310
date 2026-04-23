@@ -1,33 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="author" content="Morgan Parker">
-  <title>Skills Pre-Assessment</title>
+<meta charset="UTF-8"><!-- Defines the character encoding -->
+<meta name="description" content="Skills Pre-Assessment"><!-- Page description -->
+<meta name="author" content="Morgan Parker"><!-- Author of the page -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Mobile scaling -->
+
+<title>Morgan Parker | Skills Pre-Assessment</title>
+
+<link rel="stylesheet" href="assets/css/screen.css" media="screen">
 </head>
-<body>
 
-<h1>Skills Pre-Assessment</h1>
+<body id="top">
 
-<p>
-  The <strong>alt</strong> attribute provides alternative text for images for
-  accessibility, while the <strong>title</strong> attribute provides optional
-  tooltip information.
-</p>
+<div id="container">
 
-<dl>
-  <dt>Clarity</dt>
-  <dd>The quality of being clear, easy to understand, and free from ambiguity.</dd>
-</dl>
+  <header id="header">
+    <h1><a href="index.html">Morgan Parker</a></h1>
+  </header>
 
-<p>
-  My favorite site is
-  <a href="https://www.crunchyroll.com" target="_blank">Crunchyroll</a>.
-</p>
+  <nav id="nav">
+    <ul>
+      <li><a href="https://ualr.edu" title="UALR Website">UALR</a></li>
+      <li><a href="https://thomaswallace.net/course/mobile-web/spring-2026/" title="Course Homepage">Course</a></li>
+      <li><a href="https://www.w3.org" title="W3C Website">W3C</a></li>
+      <li><a href="https://developer.mozilla.org" title="MDN Docs">MDN</a></li>
+      <li><a href="https://etsy.com" title="Visit Etsy">Etsy</a></li>
+    </ul>
+  </nav>
 
-<p>
-  <a href="../index.html">Back to Course Homepage</a>
-</p>
+  <main id="content">
+
+    <!-- Hey Thomas! -->
+    <h2>Assessment</h2>
+
+    <p class="alert">
+      The most important goal of effective communication is clarity. Clarity is not the same as simplicity.
+    </p>
+
+    <p>
+      <img 
+        src="assets/img/content-image2.jpg" 
+        alt="Workspace" 
+        class="content-image">
+      Clarity means presenting information in a way that is easy to understand. Simplicity reduces complexity,
+      but clarity focuses on making ideas understandable even when they are complex.
+    </p>
+
+    <p>
+      Good design helps users understand information quickly. A well-structured layout improves clarity without removing important details.
+    </p>
+
+    <h3>Questions</h3>
+
+    <h4>What is the difference between the "alt" and "title" attributes?</h4>
+    <p>
+      The <code>alt</code> attribute describes an image for accessibility and when the image cannot load.
+      The <code>title</code> attribute provides extra information, usually shown as a tooltip.
+    </p>
+
+    <h4>Provide an example of a definition.</h4>
+    <p>
+      <dfn>Responsive Design</dfn>: a design approach that adapts web pages to different screen sizes.
+    </p>
+
+    <h4>Provide a favorite link with hover styling.</h4>
+    <p>
+      My favorite site is <a href="https://www.etsy.com" class="favorite-link" title="Visit Etsy">Etsy</a>.
+    </p>
+
+  </main>
+
+  <footer id="footer">
+    <h6>
+      &copy; 2026 Morgan Parker |
+      <a href="#top">Back to Top</a> |
+      <a href="https://validator.w3.org/nu/?doc=https://mparker5ualr.github.io/ifsc-1310/pre-assessment/">Validation</a>
+    </h6>
+  </footer>
+
+</div>
 
 </body>
 </html>
