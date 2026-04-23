@@ -1,46 +1,81 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #efefef;
+  color: #222;
 }
 
 .container {
   display: grid;
+  gap: 20px;
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 20px;
 
-  /* YOUR CUSTOM GRID */
   grid-template-columns: 3fr 1fr;
-  grid-template-rows: 80px 60px 1fr 60px;
+  grid-template-rows: auto auto 1fr auto;
 
   grid-template-areas:
     "header header"
     "nav nav"
     "main sidebar"
     "footer footer";
-
-  height: 100vh;
 }
 
-header {
-  grid-area: header;
-  background: #ff9f43;
-}
+/* Assign areas */
+header { grid-area: header; }
+nav { grid-area: nav; }
+main { grid-area: main; }
+aside { grid-area: sidebar; }
+footer { grid-area: footer; }
 
-nav {
-  grid-area: nav;
-  background: #82aaff;
-}
-
-main {
-  grid-area: main;
-  background: #c792ea;
-}
-
-aside {
-  grid-area: sidebar;
-  background: #4ecdc4;
-}
-
+/* Styling */
+header,
+nav,
+main,
+aside,
 footer {
-  grid-area: footer;
+  border: 2px solid #333;
+  padding: 20px;
+  background: #fff;
+}
+
+/* Header + Footer style */
+header,
+footer {
   background: #222;
-  color: white;
+  color: #fff;
+  text-align: center;
+}
+
+/* Nav style */
+nav {
+  background: #ddd;
+  text-align: center;
+}
+
+/* Main content height */
+main {
+  min-height: 300px;
+}
+
+/* Sidebar */
+aside {
+  background: #f7f7f7;
+}
+
+/* Headings */
+h1,
+h2 {
+  margin-top: 0;
 }

@@ -1,39 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSS Grid Demo</title>
+  <title>CSS Grid Lab - Two Column Right</title>
+
   <style>
-    /*  ---------------Box Sizing-----------------  */
     html {
       box-sizing: border-box;
     }
 
     *,
-    *:before,
-    *:after {
+    *::before,
+    *::after {
       box-sizing: inherit;
     }
 
-    main>* {
-      grid-template-columns: 3fr 1fr;
-grid-template-areas:
-  "header header"
-  "content aside"
-  "blog aside"
-  "footer footer";
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #efefef;
+      color: #222;
     }
 
     main {
       display: grid;
       gap: 20px;
-      max-width: 80vw;
-      margin: 20px auto;
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 20px;
+      grid-template-columns: 3fr 1fr;
+      grid-template-areas:
+        "header header"
+        "blog content"
+        "aside aside"
+        "footer footer";
+    }
+
+    .primary {
+      grid-area: header;
+    }
+
+    #content {
+      grid-area: content;
+    }
+
+    #blog {
+      grid-area: blog;
+    }
+
+    aside {
+      grid-area: aside;
+    }
+
+    footer.primary {
+      grid-area: footer;
+    }
+
+    header,
+    section,
+    aside,
+    footer {
+      background: #fff;
+      border: 2px solid #333;
+      padding: 20px;
+    }
+
+    header.primary,
+    footer.primary {
+      background: #222;
+      color: #fff;
+      text-align: center;
+    }
+
+    h1,
+    h2 {
+      margin-top: 0;
     }
   </style>
-
 </head>
 
 <body>
@@ -41,30 +85,33 @@ grid-template-areas:
     <header class="primary">
       <h1>Site Header</h1>
     </header>
+
     <section id="content">
       <header>
         <h2>#Content Section Header</h2>
       </header>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus expedita repellendus aliquid iusto consectetur ut velit totam explicabo magnam. Culpa non suscipit doloribus corporis neque.</p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos inventore quo exercitationem temporibus magni deserunt, quasi repellendus reiciendis? Quos, facere doloribus optio quasi numquam dolore!</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus expedita repellendus aliquid iusto consectetur ut velit totam explicabo magnam.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos inventore quo exercitationem temporibus magni deserunt.</p>
       <footer>Section Footer</footer>
     </section>
+
     <section id="blog">
       <header>
         <h2>#Blog Section Header</h2>
       </header>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus expedita repellendus aliquid iusto consectetur ut velit totam explicabo magnam. Culpa non suscipit doloribus corporis neque.</p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos inventore quo exercitationem temporibus magni deserunt, quasi repellendus reiciendis? Quos, facere doloribus optio quasi numquam dolore!</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus expedita repellendus aliquid iusto consectetur ut velit totam explicabo magnam.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos inventore quo exercitationem temporibus magni deserunt.</p>
       <footer>Section Footer</footer>
     </section>
+
     <aside>
       <h2>Aside</h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia non eaque dolorum sequi velit molestiae ratione ducimus ipsum excepturi atque.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia non eaque dolorum sequi velit molestiae ratione ducimus.</p>
     </aside>
-    <footer class="primary">Site Footer</footer>
+
+    <footer class="primary">
+      Site Footer
+    </footer>
   </main>
 </body>
-
 </html>
